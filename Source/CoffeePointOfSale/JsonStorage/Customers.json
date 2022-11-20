@@ -2,11 +2,102 @@
   "Customers": {
     "anonymous": {
       "Phone": "anonymous",
-      "RewardPoints": 0
+      "RewardPoints": 0,
+      "FirstName": null,
+      "LastName": null,
+      "OrderList": null
     },
-    "404-444-5555": {
-      "Phone": "404-444-5555",
-      "RewardPoints": 95
+    "770-123-4567": {
+      "Phone": "770-123-4567",
+      "RewardPoints": 0,
+      "FirstName": "John",
+      "LastName": "Roberts",
+      "OrderList": null
+    },
+    "770-987-6543": {
+      "Phone": "770-987-6543",
+      "RewardPoints": 430,
+      "FirstName": "Ken",
+      "LastName": "Block",
+      "OrderList": [
+        {
+          "TransactionDate": "2022-11-18T20:26:15.4331971-05:00",
+          "Subtotal": 10.25,
+          "Tax": 0.62,
+          "Total": 10.87,
+          "PointsEarned": 108,
+          "PaymentMethod": "Card",
+          "PaymentMethodDetails": "4343",
+          "DrinkList": [
+            {
+              "Name": "Latte",
+              "BasePrice": 4.00,
+              "TotalPrice": 5.57,
+              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+            },
+            {
+              "Name": "Matcha Green Tea Latte",
+              "BasePrice": 4.00,
+              "TotalPrice": 5.30,
+              "Customizations": "Size B | Large, $1.00"
+            }
+          ]
+        }
+      ]
+    },
+    "678-111-2345": {
+      "Phone": "678-111-2345",
+      "RewardPoints": 1962,
+      "FirstName": "Peter",
+      "LastName": "Parker",
+      "OrderList": [
+        {
+          "TransactionDate": "2022-11-12T09:43:33.4332008-05:00",
+          "Subtotal": 10.50,
+          "Tax": 0.63,
+          "Total": 11.13,
+          "PointsEarned": 111,
+          "PaymentMethod": "Card",
+          "PaymentMethodDetails": "2099",
+          "DrinkList": [
+            {
+              "Name": "Iced Latte",
+              "BasePrice": 5.25,
+              "TotalPrice": 7.16,
+              "Customizations": "Creamer F | Soy Milk, $1.50"
+            },
+            {
+              "Name": "Espresso",
+              "BasePrice": 2.50,
+              "TotalPrice": 3.98,
+              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+            }
+          ]
+        },
+        {
+          "TransactionDate": "2022-11-19T08:05:43.4332014-05:00",
+          "Subtotal": 7.51,
+          "Tax": 0.45,
+          "Total": 7.96,
+          "PointsEarned": 79,
+          "PaymentMethod": "Card",
+          "PaymentMethodDetails": "2099",
+          "DrinkList": [
+            {
+              "Name": "Coffee",
+              "BasePrice": 2.50,
+              "TotalPrice": 3.98,
+              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+            },
+            {
+              "Name": "Espresso",
+              "BasePrice": 2.50,
+              "TotalPrice": 3.98,
+              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+            }
+          ]
+        }
+      ]
     }
   }
 }
