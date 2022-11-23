@@ -9,6 +9,8 @@ public class Customer
 
     private string _phone = ""; //backing field for Phone property. only needed because the setter has logic to handle nulls and trimming spaces.
     private int _rewardPoints;
+    //private string? _lastName;
+
 
     public virtual string Phone
     {
@@ -31,6 +33,14 @@ public class Customer
         }
     }
 
+
+    public virtual string? LastName { get; set; }
+    
+
+    public virtual string? FirstName { get; set; }
+
+
+
     [JsonIgnore]
     public virtual bool IsAnonymous => Phone == AnonymousCustomerId;
 
@@ -38,6 +48,6 @@ public class Customer
     {
         return IsAnonymous  
             ? "Anonymous Customer - No Reward Points"
-            : $"{Phone}, Reward Points: {RewardPoints}";
+            : $"{LastName}, {FirstName}, {Phone}, Reward Points: {RewardPoints}";
     }
 }

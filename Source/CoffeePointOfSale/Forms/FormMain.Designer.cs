@@ -34,10 +34,10 @@ sealed partial class FormMain
             // 
             // btnManagement
             // 
-            this.btnManagement.Location = new System.Drawing.Point(46, 40);
+            this.btnManagement.Location = new System.Drawing.Point(436, 403);
             this.btnManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManagement.Name = "btnManagement";
-            this.btnManagement.Size = new System.Drawing.Size(140, 22);
+            this.btnManagement.Size = new System.Drawing.Size(412, 101);
             this.btnManagement.TabIndex = 0;
             this.btnManagement.Text = "Management";
             this.btnManagement.UseVisualStyleBackColor = true;

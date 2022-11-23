@@ -26,5 +26,10 @@ namespace CoffeePointOfSale.Forms
             Close();
             FormFactory.Get<FormMain>().Show();
         }
+
+        private void FormCustomerList_Load(object sender, EventArgs e)
+        {
+            SetTitle("Customer List");
+        }
     }
 }
