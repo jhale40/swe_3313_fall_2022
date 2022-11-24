@@ -74,7 +74,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormManagement";
             this.Text = "FormManagement";
-            this.Load += new System.EventHandler(this.OnLoadFormManagement);
+            //this.Load += new System.EventHandler(this.OnLoadFormManagement);
             this.ResumeLayout(false);
             this.PerformLayout();
 

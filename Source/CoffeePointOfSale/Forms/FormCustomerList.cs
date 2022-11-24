@@ -1,4 +1,5 @@
 ﻿using CoffeePointOfSale.Configuration;
+using CoffeePointOfSale.Services.Customer;
 using CoffeePointOfSale.Services.FormFactory;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,14 @@ namespace CoffeePointOfSale.Forms
     public partial class FormCustomerList : Base.FormNoCloseBase
     {
         private IAppSettings _appSettings;
-        public FormCustomerList(IAppSettings appSettings) : base(appSettings)
+        private readonly ICustomerService _customerService;
+
+        public FormCustomerList(IAppSettings appSettings, ICustomerService customerService) : base(appSettings)
         {
-            InitializeComponent();
             _appSettings = appSettings;
+            _customerService = customerService;
+
+            InitializeComponent();
         }
 
         private void bReturnToMain_Click(object sender, EventArgs e)
@@ -27,9 +32,50 @@ namespace CoffeePointOfSale.Forms
             FormFactory.Get<FormMain>().Show();
         }
 
+
+        private void DemonstrateGettingCustomerList()
+        {
+            var customerList = _customerService.Customers.List;
+            for (var customerIdx = 0; customerIdx < customerList.Count; customerIdx++)
+            {
+                var customer = customerList[customerIdx];
+                //txtDeleteThis.AppendText($"{customerIdx + 1}. {customer}{Environment.NewLine}");
+                //this.dataGridView1.(this.customerBindingSource);
+                //($"{customerIdx + 1}. {customer}{Environment.NewLine}");
+                //dataGridView1.DataSource = ($"{customerIdx + 1}. {customer}{Environment.NewLine}");
+
+                //customerBindingSource.DataSource = customer;
+                customerBindingSource.Add(customer);
+
+
+            }
+        }
+
+
         private void FormCustomerList_Load(object sender, EventArgs e)
         {
             SetTitle("Customer List");
+
+            //this.productsTableAdapter.Fill(this.Services.Customer);
+
+            DemonstrateGettingCustomerList();
+
+            
+
+
+        }
+
+        //This is for the "Order" button after each customer in the customer list
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Order")
+            {
+                // Hopefully this selects the customer?
+                //var customer = dataGridView1.Rows[e.ColumnIndex];
+                //Console.WriteLine("This button works");
+                MessageBox.Show("IT WORKSSSSSSSSSSSSSS");
+            }
+            
         }
     }
 }
