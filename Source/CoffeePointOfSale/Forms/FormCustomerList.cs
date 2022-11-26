@@ -65,15 +65,21 @@ namespace CoffeePointOfSale.Forms
 
         }
 
-        //This is for the "Order" button after each customer in the customer list
+        // "Order" button after each customer in the customer list
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Order")
             {
-                // Hopefully this selects the customer?
-                //var customer = dataGridView1.Rows[e.ColumnIndex];
-                //Console.WriteLine("This button works");
-                MessageBox.Show("IT WORKSSSSSSSSSSSSSS");
+                // Stores customer into currentCustomer variable in Customers class
+                _customerService.Customers.currentCustomer = (Customer?)customerBindingSource.Current;
+
+                // Goes to OrderDrinkForm
+                Close(); //closes this form
+                FormFactory.Get<FormOrderDrink>().Show(); 
+
+                //TEST TO SHOW CUSTOMER INFORMATION//MessageBox.Show(customerBindingSource.Current.ToString());
+
+
             }
             
         }
