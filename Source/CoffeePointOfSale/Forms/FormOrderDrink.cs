@@ -1,4 +1,5 @@
 ﻿using CoffeePointOfSale.Configuration;
+using CoffeePointOfSale.Services.Customer;
 using CoffeePointOfSale.Services.FormFactory;
 using System;
 using System.Collections.Generic;
@@ -15,16 +16,19 @@ namespace CoffeePointOfSale.Forms
     public partial class FormOrderDrink : Base.FormNoCloseBase
     {
         private IAppSettings _appSettings;
+        private ICustomerService _customerService;
 
-        public FormOrderDrink(IAppSettings appSettings) : base(appSettings)
+        public FormOrderDrink(IAppSettings appSettings, ICustomerService customerService) : base(appSettings)
         {
             InitializeComponent();
-            _appSettings = appSettings; 
+            _appSettings = appSettings;
+            _customerService = customerService;
         }
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
-            SetTitle("Order Drink");
+            var c = _customerService.Customers.currentCustomer;
+            SetTitle($"Order Drink for ( {c.FirstName} {c.LastName} )");
         }
 
         // Exit button Returns to Main Screen

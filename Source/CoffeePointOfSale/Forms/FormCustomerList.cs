@@ -46,8 +46,6 @@ namespace CoffeePointOfSale.Forms
 
                 //customerBindingSource.DataSource = customer;
                 customerBindingSource.Add(customer);
-
-
             }
         }
 
@@ -59,11 +57,9 @@ namespace CoffeePointOfSale.Forms
             //this.productsTableAdapter.Fill(this.Services.Customer);
 
             DemonstrateGettingCustomerList();
-
-            
-
-
         }
+
+
 
         // "Order" button after each customer in the customer list
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,8 +74,6 @@ namespace CoffeePointOfSale.Forms
                 FormFactory.Get<FormOrderDrink>().Show(); 
 
                 //TEST TO SHOW CUSTOMER INFORMATION//MessageBox.Show(customerBindingSource.Current.ToString());
-
-
             }
             
         }
