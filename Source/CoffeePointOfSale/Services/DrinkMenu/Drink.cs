@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace CoffeePointOfSale.Services.DrinkMenu;
 
 public class Drink
 {
     private List<Customization> _customizations;
-    public string Name { get; set; }
-    public string BaseDescription { get; set; }
+    public string? Name { get; set; }
+    public string? BaseDescription { get; set; }
     public decimal BasePrice { get; set; }
     
     public List<Customization> CustomizationList

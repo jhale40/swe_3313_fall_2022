@@ -37,6 +37,7 @@
             this.bLatte = new System.Windows.Forms.Button();
             this.bAddToOrder = new System.Windows.Forms.Button();
             this.bPay = new System.Windows.Forms.Button();
+            this.checkedListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // bReturnToMain
@@ -122,11 +123,20 @@
             this.bPay.Text = "Pay";
             this.bPay.UseVisualStyleBackColor = true;
             // 
+            // checkedListBox
+            // 
+            this.checkedListBox.FormattingEnabled = true;
+            this.checkedListBox.Location = new System.Drawing.Point(400, 54);
+            this.checkedListBox.Name = "checkedListBox";
+            this.checkedListBox.Size = new System.Drawing.Size(372, 508);
+            this.checkedListBox.TabIndex = 10;
+            // 
             // FormOrderDrink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 721);
+            this.Controls.Add(this.checkedListBox);
             this.Controls.Add(this.bPay);
             this.Controls.Add(this.bAddToOrder);
             this.Controls.Add(this.bLatte);
@@ -154,5 +164,6 @@
         private Button bLatte;
         private Button bAddToOrder;
         private Button bPay;
+        private CheckedListBox checkedListBox;
     }
 }
