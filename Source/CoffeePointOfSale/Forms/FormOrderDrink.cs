@@ -29,6 +29,13 @@ namespace CoffeePointOfSale.Forms
         {
             var c = _customerService.Customers.currentCustomer;
             SetTitle($"Order Drink for ( {c.FirstName} {c.LastName} )");
+
+            //Test writing code to Order Drink
+
+
+            //Test writing code to add Order to Customers.json with existing customer
+
+
         }
 
         // Exit button Returns to Main Screen

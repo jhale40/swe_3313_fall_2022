@@ -21,7 +21,7 @@
       "LastName": "Block",
       "OrderList": [
         {
-          "TransactionDate": "2022-11-18T20:26:15.4331971-05:00",
+          "TransactionDate": "2022-11-26T21:11:02.5589605-05:00",
           "Subtotal": 10.25,
           "Tax": 0.62,
           "Total": 10.87,
@@ -33,13 +33,23 @@
               "Name": "Latte",
               "BasePrice": 4.00,
               "TotalPrice": 5.57,
-              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+              "CustomizationList": [
+                {
+                  "Name": "Espresso | 1 Extra Shot",
+                  "Price": 1.25
+                }
+              ]
             },
             {
               "Name": "Matcha Green Tea Latte",
               "BasePrice": 4.00,
               "TotalPrice": 5.30,
-              "Customizations": "Size B | Large, $1.00"
+              "CustomizationList": [
+                {
+                  "Name": "Size B | Large",
+                  "Price": 1.00
+                }
+              ]
             }
           ]
         }
@@ -52,7 +62,7 @@
       "LastName": "Parker",
       "OrderList": [
         {
-          "TransactionDate": "2022-11-12T09:43:33.4332008-05:00",
+          "TransactionDate": "2022-11-26T21:11:02.5590428-05:00",
           "Subtotal": 10.50,
           "Tax": 0.63,
           "Total": 11.13,
@@ -64,22 +74,32 @@
               "Name": "Iced Latte",
               "BasePrice": 5.25,
               "TotalPrice": 7.16,
-              "Customizations": "Creamer F | Soy Milk, $1.50"
+              "CustomizationList": [
+                {
+                  "Name": "Creamer F | Soy Milk",
+                  "Price": 1.50
+                }
+              ]
             },
             {
               "Name": "Espresso",
               "BasePrice": 2.50,
               "TotalPrice": 3.98,
-              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+              "CustomizationList": [
+                {
+                  "Name": "Espresso | 1 Extra Shot",
+                  "Price": 1.25
+                }
+              ]
             }
           ]
         },
         {
-          "TransactionDate": "2022-11-19T08:05:43.4332014-05:00",
-          "Subtotal": 7.51,
-          "Tax": 0.45,
-          "Total": 7.96,
-          "PointsEarned": 79,
+          "TransactionDate": "2022-11-26T21:11:02.5590441-05:00",
+          "Subtotal": 10.50,
+          "Tax": 0.63,
+          "Total": 11.13,
+          "PointsEarned": 111,
           "PaymentMethod": "Card",
           "PaymentMethodDetails": "2099",
           "DrinkList": [
@@ -87,13 +107,23 @@
               "Name": "Coffee",
               "BasePrice": 2.50,
               "TotalPrice": 3.98,
-              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+              "CustomizationList": [
+                {
+                  "Name": "Espresso | 1 Extra Shot",
+                  "Price": 1.25
+                }
+              ]
             },
             {
               "Name": "Espresso",
               "BasePrice": 2.50,
               "TotalPrice": 3.98,
-              "Customizations": "Espresso | 1 Extra Shot, $1.25"
+              "CustomizationList": [
+                {
+                  "Name": "Espresso | 1 Extra Shot",
+                  "Price": 1.25
+                }
+              ]
             }
           ]
         }

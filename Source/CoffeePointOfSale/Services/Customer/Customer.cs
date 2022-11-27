@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CoffeePointOfSale.Services.DrinkMenu;
+using Newtonsoft.Json;
 
 namespace CoffeePointOfSale.Services.Customer;
 
@@ -12,7 +13,7 @@ public class Customer
     private int _rewardPoints;
     //private string? _lastName;
 
-    public Customer? currentCustomer { get; set; }   
+    //public Customer? currentCustomer { get; set; }   
 
     public virtual string Phone
     {
@@ -40,6 +41,8 @@ public class Customer
     
 
     public virtual string? FirstName { get; set; }
+
+    public virtual List<Order>? OrderList { get; set; }
 
 
 
