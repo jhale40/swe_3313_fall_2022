@@ -38,6 +38,7 @@
             this.bAddToOrder = new System.Windows.Forms.Button();
             this.bPay = new System.Windows.Forms.Button();
             this.checkedListBox = new System.Windows.Forms.CheckedListBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // bReturnToMain
@@ -130,12 +131,23 @@
             this.checkedListBox.Name = "checkedListBox";
             this.checkedListBox.Size = new System.Drawing.Size(372, 508);
             this.checkedListBox.TabIndex = 10;
+            this.checkedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox_ItemCheck);
+            // 
+            // listBox
+            // 
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 15;
+            this.listBox.Location = new System.Drawing.Point(1023, 50);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(272, 559);
+            this.listBox.TabIndex = 11;
             // 
             // FormOrderDrink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 721);
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.checkedListBox);
             this.Controls.Add(this.bPay);
             this.Controls.Add(this.bAddToOrder);
@@ -165,5 +177,6 @@
         private Button bAddToOrder;
         private Button bPay;
         private CheckedListBox checkedListBox;
+        private ListBox listBox;
     }
 }

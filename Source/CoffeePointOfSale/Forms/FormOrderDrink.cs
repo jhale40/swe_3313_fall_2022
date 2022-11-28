@@ -32,21 +32,48 @@ namespace CoffeePointOfSale.Forms
         {
             var c = _customerService.Customers.currentCustomer;
             SetTitle($"Order Drink for ( {c.FirstName} {c.LastName} )");
+
             PopulateCheckBox();
+
+
             //Test writing code to create Order and put Drink in it with and without customization
             ////New Order might start on CustomerListForm when Orderdrink button is selected
 
+            var drink = _drinkMenuService.DrinkMenuList[0];
+            var order = new Order() 
+            { 
+                TransactionDate = DateTime.Now, PaymentMethod = "Credit", Subtotal = drink.BasePrice, 
+                Tax = (drink.BasePrice * _appSettings.Tax.Rate), 
+                Total = ((drink.BasePrice * _appSettings.Tax.Rate) + (drink.BasePrice)) 
+            };
             /*Order currentOrder = new Order
             {
                 DrinkList = new List<Drink>() { new Drink { BasePrice = 2.50M, Name = "Coffee" } }
             };*/
-            
 
-            
+
+
 
             //Test writing code to add Order to Customers.json with existing customer
             //when payment type is selected on Payment Screen
 
+            var KenBlock = _customerService.Customers["770-987-6543"];
+            KenBlock.OrderList.Add(order);
+            //_customerService.Write();// Need this but Add Drink to DrinkList first, Only use Write() when valid payment
+               //Have method that returns Drink(maybe customizations too) or creates Drinklist
+               //Map out plan for methods to work together
+
+
+
+
+            //Test adding new Customer
+            var newcustomer = new Customer() { FirstName = "John", LastName = "Doe", Phone = "999-888-7777" };
+
+            if (_customerService.Customers[newcustomer.Phone] == null)
+            {
+                _customerService.Customers.Add(newcustomer);
+                _customerService.Write();
+            }
 
         }
 
@@ -84,6 +111,21 @@ namespace CoffeePointOfSale.Forms
         {
             Close();
             FormFactory.Get<FormMain>().Show();
+        }
+
+
+
+        // When Customizations are selected in the CheckListBox, they will be sent to the OrderList box 
+        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                listBox.Items.Add(checkedListBox.SelectedItem);
+            }
+            else
+            {
+                listBox.Items.Remove(checkedListBox.SelectedItem);
+            }
         }
     }
 }
