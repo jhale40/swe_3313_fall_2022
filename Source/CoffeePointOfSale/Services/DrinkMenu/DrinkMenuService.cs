@@ -53,8 +53,36 @@ public class DrinkMenuService : IDrinkMenuService
         return drinkMenuList;
     }
 
+    /*public List<DrinkModelCsvLine> ConvertToCsvModel()
+    {
+        throw new NotImplementedException();
+    }*/
+
+    /*public List<DrinkModelCsvLine> ConvertToCsvModel()
+    {
+        throw new NotImplementedException();
+    }*/
+
+    /// <summary>
+    ///     Converts drink collection into a type tailored for CSV extract of the drink menu
+    /// </summary>
+    /// <returns></returns>
+
+    /*public List<DrinkModelCsvLine> ConvertToCsvModel()
+    {
+        return DrinkMenuList.Select(drink => new DrinkModelCsvLine(drink)).ToList();
+    }*/
 
 
+
+    /*/// <summary>
+    ///     Add service to DI container - normally done in an extension method, but this way for simplicity
+    /// </summary>
+    /// <param name="services"></param>
+    public static void ConfigureService(IServiceCollection services)
+    {
+        services.AddSingleton<IDrinkMenuService, DrinkMenuService>();
+    }*/
 
 
 

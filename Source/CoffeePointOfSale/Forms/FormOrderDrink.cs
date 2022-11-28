@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +32,7 @@ namespace CoffeePointOfSale.Forms
         {
             var c = _customerService.Customers.currentCustomer;
             SetTitle($"Order Drink for ( {c.FirstName} {c.LastName} )");
-
+            PopulateCheckBox();
             //Test writing code to create Order and put Drink in it with and without customization
             ////New Order might start on CustomerListForm when Orderdrink button is selected
 
@@ -49,16 +50,34 @@ namespace CoffeePointOfSale.Forms
 
         }
 
-        /*private void populateCheckBox()
+        private void PopulateCheckBox()
         {
-            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            /*var drinkMenuList = _drinkMenuService.DrinkMenuList;
             for (var index = 0; index < drinkMenuList.Count; index++)
             {
                 var drink = drinkMenuList[index];
                 //List<Customization> customizations = drink.CustomizationList;
-                checkedListBox.Items.Add(drink);
+                var customization = drink.CustomizationList;
+                checkedListBox.Items.Add(customization);
+            }*/
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[0];
+            //List<Customization> customizations = drink.CustomizationList;
+
+
+            for (var index = 0; index < drink.CustomizationList.Count; index++)
+            {
+                var customization = drink.CustomizationList[index];
+                checkedListBox.Items.Add(customization.ToString());
+
             }
-        }*/
+
+
+        }
+
+
+
 
         // Exit button Returns to Main Screen
         private void bReturnToMain_Click(object sender, EventArgs e)

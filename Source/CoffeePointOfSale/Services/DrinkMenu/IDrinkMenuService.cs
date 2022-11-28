@@ -4,5 +4,6 @@ public interface IDrinkMenuService
 { 
     public IReadOnlyList<Drink> DrinkMenuList { get; init; }
 
+    /*List<DrinkModelCsvLine> ConvertToCsvModel();*/
 }
 
