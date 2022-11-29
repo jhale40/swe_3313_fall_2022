@@ -56,6 +56,7 @@
             // 
             // bCoffee
             // 
+            this.bCoffee.BackColor = System.Drawing.Color.White;
             this.bCoffee.Dock = System.Windows.Forms.DockStyle.Top;
             this.bCoffee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCoffee.Location = new System.Drawing.Point(0, 0);
@@ -63,62 +64,67 @@
             this.bCoffee.Size = new System.Drawing.Size(342, 73);
             this.bCoffee.TabIndex = 2;
             this.bCoffee.Text = "Coffee";
-            this.bCoffee.UseVisualStyleBackColor = true;
+            this.bCoffee.UseVisualStyleBackColor = false;
             this.bCoffee.Click += new System.EventHandler(this.bCoffee_Click);
             // 
             // bEspresso
             // 
+            this.bEspresso.BackColor = System.Drawing.Color.White;
             this.bEspresso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bEspresso.Location = new System.Drawing.Point(0, 117);
             this.bEspresso.Name = "bEspresso";
             this.bEspresso.Size = new System.Drawing.Size(342, 73);
             this.bEspresso.TabIndex = 3;
             this.bEspresso.Text = "Espresso";
-            this.bEspresso.UseVisualStyleBackColor = true;
+            this.bEspresso.UseVisualStyleBackColor = false;
             this.bEspresso.Click += new System.EventHandler(this.bEspresso_Click);
             // 
             // bIcedLatte
             // 
+            this.bIcedLatte.BackColor = System.Drawing.Color.White;
             this.bIcedLatte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bIcedLatte.Location = new System.Drawing.Point(0, 238);
             this.bIcedLatte.Name = "bIcedLatte";
             this.bIcedLatte.Size = new System.Drawing.Size(342, 73);
             this.bIcedLatte.TabIndex = 4;
             this.bIcedLatte.Text = "Iced Latte";
-            this.bIcedLatte.UseVisualStyleBackColor = true;
+            this.bIcedLatte.UseVisualStyleBackColor = false;
             this.bIcedLatte.Click += new System.EventHandler(this.bIcedLatte_Click);
             // 
             // bGreenTea
             // 
+            this.bGreenTea.BackColor = System.Drawing.Color.White;
             this.bGreenTea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bGreenTea.Location = new System.Drawing.Point(0, 340);
             this.bGreenTea.Name = "bGreenTea";
             this.bGreenTea.Size = new System.Drawing.Size(342, 73);
             this.bGreenTea.TabIndex = 5;
             this.bGreenTea.Text = "Iced Matcha Green Tea Latte";
-            this.bGreenTea.UseVisualStyleBackColor = true;
+            this.bGreenTea.UseVisualStyleBackColor = false;
             this.bGreenTea.Click += new System.EventHandler(this.bGreenTea_Click);
             // 
             // b_IcedWater
             // 
+            this.b_IcedWater.BackColor = System.Drawing.Color.White;
             this.b_IcedWater.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b_IcedWater.Location = new System.Drawing.Point(0, 465);
             this.b_IcedWater.Name = "b_IcedWater";
             this.b_IcedWater.Size = new System.Drawing.Size(342, 73);
             this.b_IcedWater.TabIndex = 6;
             this.b_IcedWater.Text = "Iced Water";
-            this.b_IcedWater.UseVisualStyleBackColor = true;
+            this.b_IcedWater.UseVisualStyleBackColor = false;
             this.b_IcedWater.Click += new System.EventHandler(this.b_IcedWater_Click);
             // 
             // bLatte
             // 
+            this.bLatte.BackColor = System.Drawing.Color.White;
             this.bLatte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bLatte.Location = new System.Drawing.Point(0, 572);
             this.bLatte.Name = "bLatte";
             this.bLatte.Size = new System.Drawing.Size(342, 73);
             this.bLatte.TabIndex = 7;
             this.bLatte.Text = "Latte";
-            this.bLatte.UseVisualStyleBackColor = true;
+            this.bLatte.UseVisualStyleBackColor = false;
             this.bLatte.Click += new System.EventHandler(this.bLatte_Click);
             // 
             // bAddToOrder
