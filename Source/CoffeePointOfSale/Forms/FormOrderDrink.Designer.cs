@@ -39,6 +39,8 @@
             this.bPay = new System.Windows.Forms.Button();
             this.checkedListBox = new System.Windows.Forms.CheckedListBox();
             this.listBox = new System.Windows.Forms.ListBox();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // bReturnToMain
@@ -54,57 +56,70 @@
             // 
             // bCoffee
             // 
-            this.bCoffee.Location = new System.Drawing.Point(22, 48);
+            this.bCoffee.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bCoffee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCoffee.Location = new System.Drawing.Point(0, 0);
             this.bCoffee.Name = "bCoffee";
-            this.bCoffee.Size = new System.Drawing.Size(283, 73);
+            this.bCoffee.Size = new System.Drawing.Size(342, 73);
             this.bCoffee.TabIndex = 2;
             this.bCoffee.Text = "Coffee";
             this.bCoffee.UseVisualStyleBackColor = true;
+            this.bCoffee.Click += new System.EventHandler(this.bCoffee_Click);
             // 
             // bEspresso
             // 
-            this.bEspresso.Location = new System.Drawing.Point(22, 162);
+            this.bEspresso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bEspresso.Location = new System.Drawing.Point(0, 117);
             this.bEspresso.Name = "bEspresso";
-            this.bEspresso.Size = new System.Drawing.Size(283, 73);
+            this.bEspresso.Size = new System.Drawing.Size(342, 73);
             this.bEspresso.TabIndex = 3;
             this.bEspresso.Text = "Espresso";
             this.bEspresso.UseVisualStyleBackColor = true;
+            this.bEspresso.Click += new System.EventHandler(this.bEspresso_Click);
             // 
             // bIcedLatte
             // 
-            this.bIcedLatte.Location = new System.Drawing.Point(22, 268);
+            this.bIcedLatte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bIcedLatte.Location = new System.Drawing.Point(0, 238);
             this.bIcedLatte.Name = "bIcedLatte";
-            this.bIcedLatte.Size = new System.Drawing.Size(283, 73);
+            this.bIcedLatte.Size = new System.Drawing.Size(342, 73);
             this.bIcedLatte.TabIndex = 4;
             this.bIcedLatte.Text = "Iced Latte";
             this.bIcedLatte.UseVisualStyleBackColor = true;
+            this.bIcedLatte.Click += new System.EventHandler(this.bIcedLatte_Click);
             // 
             // bGreenTea
             // 
-            this.bGreenTea.Location = new System.Drawing.Point(22, 375);
+            this.bGreenTea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bGreenTea.Location = new System.Drawing.Point(0, 340);
             this.bGreenTea.Name = "bGreenTea";
-            this.bGreenTea.Size = new System.Drawing.Size(283, 73);
+            this.bGreenTea.Size = new System.Drawing.Size(342, 73);
             this.bGreenTea.TabIndex = 5;
             this.bGreenTea.Text = "Iced Matcha Green Tea Latte";
             this.bGreenTea.UseVisualStyleBackColor = true;
+            this.bGreenTea.Click += new System.EventHandler(this.bGreenTea_Click);
             // 
             // b_IcedWater
             // 
-            this.b_IcedWater.Location = new System.Drawing.Point(22, 494);
+            this.b_IcedWater.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_IcedWater.Location = new System.Drawing.Point(0, 465);
             this.b_IcedWater.Name = "b_IcedWater";
-            this.b_IcedWater.Size = new System.Drawing.Size(283, 73);
+            this.b_IcedWater.Size = new System.Drawing.Size(342, 73);
             this.b_IcedWater.TabIndex = 6;
             this.b_IcedWater.Text = "Iced Water";
             this.b_IcedWater.UseVisualStyleBackColor = true;
+            this.b_IcedWater.Click += new System.EventHandler(this.b_IcedWater_Click);
             // 
             // bLatte
             // 
-            this.bLatte.Location = new System.Drawing.Point(22, 596);
+            this.bLatte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bLatte.Location = new System.Drawing.Point(0, 572);
             this.bLatte.Name = "bLatte";
-            this.bLatte.Size = new System.Drawing.Size(283, 73);
+            this.bLatte.Size = new System.Drawing.Size(342, 73);
             this.bLatte.TabIndex = 7;
             this.bLatte.Text = "Latte";
             this.bLatte.UseVisualStyleBackColor = true;
+            this.bLatte.Click += new System.EventHandler(this.bLatte_Click);
             // 
             // bAddToOrder
             // 
@@ -129,7 +144,7 @@
             this.checkedListBox.FormattingEnabled = true;
             this.checkedListBox.Location = new System.Drawing.Point(400, 54);
             this.checkedListBox.Name = "checkedListBox";
-            this.checkedListBox.Size = new System.Drawing.Size(372, 508);
+            this.checkedListBox.Size = new System.Drawing.Size(372, 382);
             this.checkedListBox.TabIndex = 10;
             this.checkedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox_ItemCheck);
             // 
@@ -137,30 +152,39 @@
             // 
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 15;
-            this.listBox.Location = new System.Drawing.Point(1023, 50);
+            this.listBox.Location = new System.Drawing.Point(1023, 63);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(272, 559);
+            this.listBox.Size = new System.Drawing.Size(272, 229);
             this.listBox.TabIndex = 11;
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.Controls.Add(this.bCoffee);
+            this.panelMenu.Controls.Add(this.bEspresso);
+            this.panelMenu.Controls.Add(this.bIcedLatte);
+            this.panelMenu.Controls.Add(this.bGreenTea);
+            this.panelMenu.Controls.Add(this.b_IcedWater);
+            this.panelMenu.Controls.Add(this.bLatte);
+            this.panelMenu.Location = new System.Drawing.Point(12, 12);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(342, 669);
+            this.panelMenu.TabIndex = 12;
             // 
             // FormOrderDrink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 721);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.checkedListBox);
             this.Controls.Add(this.bPay);
             this.Controls.Add(this.bAddToOrder);
-            this.Controls.Add(this.bLatte);
-            this.Controls.Add(this.b_IcedWater);
-            this.Controls.Add(this.bGreenTea);
-            this.Controls.Add(this.bIcedLatte);
-            this.Controls.Add(this.bEspresso);
-            this.Controls.Add(this.bCoffee);
             this.Controls.Add(this.bReturnToMain);
             this.Name = "FormOrderDrink";
             this.Text = "FormOrderDrink";
             this.Load += new System.EventHandler(this.FormOrderDrink_Load);
+            this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -178,5 +202,6 @@
         private Button bPay;
         private CheckedListBox checkedListBox;
         private ListBox listBox;
+        private Panel panelMenu;
     }
 }

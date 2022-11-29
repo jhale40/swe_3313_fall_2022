@@ -20,7 +20,9 @@ namespace CoffeePointOfSale.Forms
         private IAppSettings _appSettings;
         private ICustomerService _customerService;
         private IDrinkMenuService _drinkMenuService;
-        public FormOrderDrink(IAppSettings appSettings, ICustomerService customerService, IDrinkMenuService drinkMenuService) : base(appSettings)
+        private Button? currentButton = null;
+        public FormOrderDrink(IAppSettings appSettings, ICustomerService customerService, 
+            IDrinkMenuService drinkMenuService) : base(appSettings)
         {
             InitializeComponent();
             _appSettings = appSettings;
@@ -46,13 +48,10 @@ namespace CoffeePointOfSale.Forms
                 Tax = (drink.BasePrice * _appSettings.Tax.Rate), 
                 Total = ((drink.BasePrice * _appSettings.Tax.Rate) + (drink.BasePrice)) 
             };
-            /*Order currentOrder = new Order
-            {
-                DrinkList = new List<Drink>() { new Drink { BasePrice = 2.50M, Name = "Coffee" } }
-            };*/
 
 
 
+   
 
             //Test writing code to add Order to Customers.json with existing customer
             //when payment type is selected on Payment Screen
@@ -127,5 +126,68 @@ namespace CoffeePointOfSale.Forms
                 listBox.Items.Remove(checkedListBox.SelectedItem);
             }
         }
+
+
+        // Highlights current Drink button selected in panelMenu
+        private void ActivateButton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                if (currentButton != (Button)btnSender)
+                {
+                    DisableButton();
+                    currentButton = (Button)btnSender;
+                    currentButton.BackColor = Color.Silver;
+                }
+            }
+        }
+
+
+        private void DisableButton()
+        {
+            foreach (Control previousBtn in panelMenu.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.White;
+                }
+            }
+        }
+
+
+
+        // Drink Buttons
+        private void bCoffee_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void bEspresso_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void bIcedLatte_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void bGreenTea_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void b_IcedWater_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+        private void bLatte_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+        }
+
+
+
     }
 }

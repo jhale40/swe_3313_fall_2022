@@ -6,7 +6,7 @@ public class Customers
 {
     // Try storing current customer here?
     public Customer? currentCustomer { get; set; }
-
+    
     /// <summary>
     /// Private dictionary containing all of the customers. Lookup via phone.
     /// </summary>
