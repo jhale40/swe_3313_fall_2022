@@ -21,6 +21,10 @@ namespace CoffeePointOfSale.Forms
         private ICustomerService _customerService;
         private IDrinkMenuService _drinkMenuService;
         private Button? currentButton = null;
+        private Drink currentDrink;
+        //private Customer currentCustomer;
+        
+
         public FormOrderDrink(IAppSettings appSettings, ICustomerService customerService, 
             IDrinkMenuService drinkMenuService) : base(appSettings)
         {
@@ -28,17 +32,21 @@ namespace CoffeePointOfSale.Forms
             _appSettings = appSettings;
             _customerService = customerService;
             _drinkMenuService = drinkMenuService;
+            
         }
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
-            var c = _customerService.Customers.currentCustomer;
-            SetTitle($"Order Drink for ( {c.FirstName} {c.LastName} )");
 
+            SetTitleToCustomer();
             PopulateCheckBox();
 
 
-            //Test writing code to create Order and put Drink in it with and without customization
+
+
+
+
+            /*//Test writing code to create Order and put Drink in it with and without customization
             ////New Order might start on CustomerListForm when Orderdrink button is selected
 
             var drink = _drinkMenuService.DrinkMenuList[0];
@@ -58,9 +66,12 @@ namespace CoffeePointOfSale.Forms
 
             var KenBlock = _customerService.Customers["770-987-6543"];
             KenBlock.OrderList.Add(order);
+
+
+
             //_customerService.Write();// Need this but Add Drink to DrinkList first, Only use Write() when valid payment
-               //Have method that returns Drink(maybe customizations too) or creates Drinklist
-               //Map out plan for methods to work together
+            //Have method that returns Drink(maybe customizations too) or creates Drinklist
+            //Map out plan for methods to work together
 
 
 
@@ -71,10 +82,16 @@ namespace CoffeePointOfSale.Forms
             if (_customerService.Customers[newcustomer.Phone] == null)
             {
                 _customerService.Customers.Add(newcustomer);
-                _customerService.Write();
-            }
+                //_customerService.Write();
+            }*/
 
-        }
+
+
+
+        }// ON LOAD METHOD
+
+
+
 
         private void PopulateCheckBox()
         {
@@ -100,6 +117,14 @@ namespace CoffeePointOfSale.Forms
             }
 
 
+        }
+
+
+
+        private void SetTitleToCustomer()
+        {
+            var customer = _customerService.Customers.currentCustomer;
+            SetTitle($"Order Drink for ( {customer.FirstName} {customer.LastName} )");
         }
 
 
@@ -160,31 +185,73 @@ namespace CoffeePointOfSale.Forms
         private void bCoffee_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[0];
+            currentDrink = drink;
+
+            //Testing 
+            MessageBox.Show(currentDrink.ToString());
         }
 
         private void bEspresso_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[1];
+            currentDrink = drink;
+
+            //Testing 
+            MessageBox.Show(currentDrink.ToString());
         }
 
         private void bIcedLatte_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[2];
+            currentDrink = drink;
+
+            //Testing 
+            MessageBox.Show(currentDrink.ToString());
         }
 
         private void bGreenTea_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[3];
+            currentDrink = drink;
+
+            //Testing 
+            MessageBox.Show(currentDrink.ToString());
         }
 
         private void b_IcedWater_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[4];
+            currentDrink = drink;
+
+            //Testing 
+            MessageBox.Show(currentDrink.ToString());
         }
 
         private void bLatte_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            var drink = drinkMenuList[5];
+            currentDrink = drink;
+
+            //Testing 
+            MessageBox.Show(currentDrink.ToString());
         }
 
 
