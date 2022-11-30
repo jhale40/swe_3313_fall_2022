@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace CoffeePointOfSale.Forms
 {
@@ -95,26 +96,39 @@ namespace CoffeePointOfSale.Forms
 
         private void PopulateCheckBox()
         {
-            /*var drinkMenuList = _drinkMenuService.DrinkMenuList;
-            for (var index = 0; index < drinkMenuList.Count; index++)
-            {
-                var drink = drinkMenuList[index];
-                //List<Customization> customizations = drink.CustomizationList;
-                var customization = drink.CustomizationList;
-                checkedListBox.Items.Add(customization);
-            }*/
 
             var drinkMenuList = _drinkMenuService.DrinkMenuList;
             var drink = drinkMenuList[0];
-            //List<Customization> customizations = drink.CustomizationList;
+            currentDrink = drink;
 
-
-            for (var index = 0; index < drink.CustomizationList.Count; index++)
+                for (var index = 0; index < currentDrink.CustomizationList.Count; index++)
             {
-                var customization = drink.CustomizationList[index];
+
+                var customization = currentDrink.CustomizationList[index];
                 checkedListBox.Items.Add(customization.ToString());
 
             }
+
+
+            /*if (currentDrink != null)
+            {
+                *//*var drinkMenuList = _drinkMenuService.DrinkMenuList;
+                var drink = drinkMenuList[0];
+                currentDrink = drink;*//*
+
+                for (var index = 0; index < currentDrink.CustomizationList.Count; index++)
+                {
+
+                    var customization = currentDrink.CustomizationList[index];
+                    checkedListBox.Items.Add(customization.ToString());
+
+                }
+
+            }
+            else
+            {
+                checkedListBox.Items.Add("Select a Drink");
+            }*/
 
 
         }
