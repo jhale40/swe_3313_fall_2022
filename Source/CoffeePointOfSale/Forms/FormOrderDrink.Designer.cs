@@ -135,6 +135,7 @@
             this.bAddToOrder.TabIndex = 8;
             this.bAddToOrder.Text = "Add";
             this.bAddToOrder.UseVisualStyleBackColor = true;
+            this.bAddToOrder.Click += new System.EventHandler(this.bAddToOrder_Click);
             // 
             // bPay
             // 
