@@ -12,10 +12,26 @@ public class Drink
 {
     private List<Customization> _customizations;
 
+
+
+    /*public Drink(string name, decimal basePrice)
+    {
+        this.Name = name;
+        this.BasePrice = basePrice;
+        this.BaseDescription = null;
+        this._customizations = new List<Customization>();
+       
+
+
+    }*/
+
+
     public Drink(List<Customization> customizations)
     {
         _customizations = customizations;
     }
+
+
 
     public string? Name { get; set; }
     public string? BaseDescription { get; set; }

@@ -7,12 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.LinkLabel;
 
 namespace CoffeePointOfSale.Forms
@@ -36,11 +38,19 @@ namespace CoffeePointOfSale.Forms
             _appSettings = appSettings;
             _customerService = customerService;
             _drinkMenuService = drinkMenuService;
+            currentDrink = null;
             
         }
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
+            /*//var item = new SaleItem { Name = "Shoes", Price = 19.95m };
+            
+            string name = "";
+            decimal price = 0.0m;
+            List<Customization> cList = new List<Customization>();*/
+            //var drink = new Drink { CustomizationList = null};
+            //currentDrink = drink;
 
             SetTitleToCustomer();
             PopulateCheckBox();
@@ -104,12 +114,12 @@ namespace CoffeePointOfSale.Forms
 
             var drinkMenuList = _drinkMenuService.DrinkMenuList;
             var drink = drinkMenuList[0];
-            currentDrink = drink;
+            //currentDrink = drink;
 
-                for (var index = 0; index < currentDrink.CustomizationList.Count; index++)
+                for (var index = 0; index < drink.CustomizationList.Count; index++)
             {
 
-                var customization = currentDrink.CustomizationList[index];
+                var customization = drink.CustomizationList[index];
                 checkedListBox.Items.Add(customization.ToString());
 
             }
@@ -157,21 +167,24 @@ namespace CoffeePointOfSale.Forms
         }
 
 
-
+        //Change to when Customizations are selected in the CheckListBox, they will be added to a drink customizationlist
         // When Customizations are selected in the CheckListBox, they will be sent to the OrderList box 
         private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            //customizationSelected = false;
+
             if (e.NewValue == CheckState.Checked)
             {
                 customizationSelected = true;
                 listBox.Items.Add(checkedListBox.SelectedItem);
+                //var customization = checkedListBox.SelectedItem;
+                //Drink 
             }
             else
             {
-                customizationSelected = false;
-
                 listBox.Items.Remove(checkedListBox.SelectedItem);
             }
+
         }
 
 
@@ -210,9 +223,24 @@ namespace CoffeePointOfSale.Forms
             drinkSelected = true;
             ActivateButton(sender);
 
+            //var drinkMenuList = _drinkMenuService.DrinkMenuList;
+            //string c = drinkMenuList[0].Name;
+            //Drink d = new Drink(drinkMenuList[0].Name, drinkMenuList[0].BasePrice);
+            //currentDrink = d;*/
+
+            //Drink d = new Drink { Name = drinkMenuList[0].Name, BasePrice = drinkMenuList[0].BasePrice };
+            //currentDrink =  { Name = drinkMenuList[0].Name};
+
+            //drinkSelected = false;
+            //var drinkPrice = drinkMenuList[0].BasePrice;
+            //currentDrink = { Name = drinkName, BasPrice = drinkPrice};
+
             var drinkMenuList = _drinkMenuService.DrinkMenuList;
             var drink = drinkMenuList[0];
+            //var drinkTemp = drink.CustomizationList.Clear();
             currentDrink = drink;
+            currentDrink.CustomizationList.Clear();
+
 
             //Testing 
             MessageBox.Show(currentDrink.ToString());
@@ -291,6 +319,8 @@ namespace CoffeePointOfSale.Forms
         {
             if (drinkSelected)
             {
+                //Drink? drink = currentDrink;
+
                 // Test to see what drink is selected
                 //MessageBox.Show(currentDrink.ToString());
 
@@ -298,15 +328,25 @@ namespace CoffeePointOfSale.Forms
                 //set a boolean in customizations
                 if (customizationSelected)
                 {
-                    MessageBox.Show(checkedListBox.SelectedItem.ToString());
-                    CoffeeContext.CurrentOrder.DrinkList.Drink.CustomizationList.Add(checkedListBox.SelectedItem);
+                    //var custom = (Customization)checkedListBox.SelectedItem;
+
+                    //currentDrink.CustomizationList.Add((Customization)checkedListBox.SelectedItem);
+                    //drink.CustomizationList.Add(custom);
+
+                    //var customizations = checkedListBox.SelectedItem;
+                    MessageBox.Show("Custom");
+                    //CoffeeContext.CurrentOrder.DrinkList.Drink.CustomizationList.Add(checkedListBox.SelectedItem);
                 }
 
                 // Adds Drink to static class Coffee context CurrentOrder
-                CoffeeContext.CurrentOrder.DrinkList.Add(currentDrink);
+                //CoffeeContext.CurrentOrder.DrinkList.Add(drink);
 
 
-            }else {
+                //CoffeeContext.CurrentOrder.DrinkList.Add(currentDrink);
+
+
+            }
+            else {
                 MessageBox.Show("SELECT A DRINK");
 
             }
@@ -314,7 +354,8 @@ namespace CoffeePointOfSale.Forms
             //also need to clear checklistbox and unhighlight drink button
             //Might be a seperate matter but Order list box should print order details. If not
             //then write a method to print drinks to Orderlist box
-            drinkSelected=false;
+
+            //drinkSelected=false;
 
         }
     }
