@@ -38,7 +38,7 @@ namespace CoffeePointOfSale.Forms
             _appSettings = appSettings;
             _customerService = customerService;
             _drinkMenuService = drinkMenuService;
-            currentDrink = null;
+            //currentDrink = null;
             
         }
 
@@ -51,7 +51,7 @@ namespace CoffeePointOfSale.Forms
             List<Customization> cList = new List<Customization>();*/
             //var drink = new Drink { CustomizationList = null};
             //currentDrink = drink;
-
+            var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
             SetTitleToCustomer();
             PopulateCheckBox();
 
@@ -107,19 +107,19 @@ namespace CoffeePointOfSale.Forms
         }// ON LOAD METHOD
 
 
-
+        
 
         private void PopulateCheckBox()
         {
 
-            var drinkMenuList = _drinkMenuService.DrinkMenuList;
-            var drink = drinkMenuList[0];
+            var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+            //var drink = drinkMenuList[0];
             //currentDrink = drink;
 
-                for (var index = 0; index < drink.CustomizationList.Count; index++)
+                for (var index = 0; index < customizations.Count; index++)
             {
 
-                var customization = drink.CustomizationList[index];
+                var customization = customizations[index];
                 checkedListBox.Items.Add(customization.ToString());
 
             }
@@ -235,11 +235,17 @@ namespace CoffeePointOfSale.Forms
             //var drinkPrice = drinkMenuList[0].BasePrice;
             //currentDrink = { Name = drinkName, BasPrice = drinkPrice};
 
+            
+
             var drinkMenuList = _drinkMenuService.DrinkMenuList;
             var drink = drinkMenuList[0];
+
             //var drinkTemp = drink.CustomizationList.Clear();
+
+            drink.CustomizationList.Clear();
+
             currentDrink = drink;
-            currentDrink.CustomizationList.Clear();
+            //currentDrink.CustomizationList.Clear();
 
 
             //Testing 
