@@ -18,9 +18,9 @@ namespace CoffeePointOfSale.Forms
     {
         private IAppSettings _appSettings; 
         private ICustomerService _customerService;
-        private string PhoneNumber;
-        private string FirstName;
-        private string LastName;
+        public string? PhoneNumber;
+        public string? FirstName;
+        public string? LastName;
         
         public FormAddCustomer(IAppSettings appSettings, ICustomerService customerService) : base(appSettings)
         {
@@ -35,22 +35,18 @@ namespace CoffeePointOfSale.Forms
             FormFactory.Get<FormMain>().Show();
         }
 
+
+        //FORM ON LOAD METHOD
         private void FormAddCustomer_Load(object sender, EventArgs e)
         {
-            PhoneNumber = textBoxPhone.Text;
-            FirstName = textBoxFirstName.Text;
-            LastName = textBoxLastName.Text;
+            
         }
 
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("YAYYYY");
+            MessageBox.Show(PhoneNumber);
 
-            /*PhoneNumber = textBoxPhone.Text;
-            FirstName = textBoxFirstName.Text;
-            LastName = textBoxLastName.Text;*/
-
-            var customer = new Customer()
+            /*var customer = new Customer()
             {
                 Phone = PhoneNumber,
                 FirstName = FirstName,
@@ -61,8 +57,24 @@ namespace CoffeePointOfSale.Forms
             {
                 MessageBox.Show("YAYYYY");
 
-            }
+            }*/
 
+        }
+
+        private void textBoxPhone_TextChanged(object sender, EventArgs e)
+        {
+            
+            PhoneNumber = textBoxPhone.Text;
+        }
+
+        private void textBoxFirstName_TextChanged(object sender, EventArgs e)
+        {
+            FirstName = textBoxFirstName.Text;
+        }
+
+        private void textBoxLastName_TextChanged(object sender, EventArgs e)
+        {
+            LastName = textBoxLastName.Text;
         }
     }
 }
