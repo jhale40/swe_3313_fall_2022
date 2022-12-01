@@ -31,8 +31,8 @@ namespace CoffeePointOfSale.Forms
 
         private void bReturnToFormMain_Click(object sender, EventArgs e)
         {
-            Close();
-            FormFactory.Get<FormMain>().Show();
+            Close();// Closes this Form
+            FormFactory.Get<FormMain>().Show();// Go to FormMain
         }
 
 
@@ -42,9 +42,62 @@ namespace CoffeePointOfSale.Forms
             
         }
 
+        public string? GetPhoneNumber()
+        {
+            return PhoneNumber;
+        }
+
+        // Creates a Customer and checks if Customers phone number exist in 
+        // the Customers Dictionary. If it doesn't exist then the new Customer
+        // will be added and then sent to the Order Drink Screen
+        public void AddNewCustomer(string? phoneNumber)
+        {
+            var customer = new Customer()
+            {
+                Phone = phoneNumber,
+                FirstName = FirstName,
+                LastName = LastName,
+                RewardPoints = 0
+            };
+
+
+            if (_customerService.Customers[customer.Phone] == null)
+            {
+                _customerService.Customers.Add(customer);
+                _customerService.Write();
+
+                //Set customer to currentCustomer in Customers Class
+                _customerService.Customers.currentCustomer = customer;
+
+                //Close this Form and open FormOrderDrink
+                Close();// Closes this Form
+                FormFactory.Get<FormOrderDrink>().Show();// Go to FormOrderDrink
+
+            }
+            else
+            {
+                MessageBox.Show("Customer already exist");
+
+            }
+
+
+            //_customerService.Write();              
+
+
+
+
+            /*if (_customerService.Customers[customer.Phone] == null)
+            {
+                MessageBox.Show("YAYYYY");
+
+            }*/
+
+        }
+
         private void buttonAddCustomer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(PhoneNumber);
+            AddNewCustomer(GetPhoneNumber());
+            //MessageBox.Show(PhoneNumber);
 
             /*var customer = new Customer()
             {
