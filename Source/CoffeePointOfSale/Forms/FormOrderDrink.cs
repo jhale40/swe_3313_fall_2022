@@ -28,7 +28,9 @@ namespace CoffeePointOfSale.Forms
         private Drink? currentDrink;
         private bool drinkSelected = false;
         private bool customizationSelected = false;
-        private List<Customization> custList = new List<Customization>();
+        private readonly List<Customization> custList = new List<Customization>();
+        //private readonly List<Drink> ReadOnlyDrinkList = new List<Drink>();
+         
         //var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
         //List<Customization> custList = new List<Customization>();
 
@@ -44,16 +46,21 @@ namespace CoffeePointOfSale.Forms
             var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
 
             //currentDrink = null
+            CoffeeContext.CurrentOrder.DrinkList.Add(currentDrink);
+
 
         }
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
+            
+            
+
             SetTitleToCustomer();
             PopulateCheckBox();
 
-
-           var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+            //Put in a method
+            var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
 
             foreach (Customization c in customizations)
             {
@@ -62,6 +69,14 @@ namespace CoffeePointOfSale.Forms
                 //var customization = customizations[c];
 
             }
+
+            /*var drink = currentDrink;
+            CoffeeContext.CurrentOrder = new Order()
+            {
+                DrinkList = new List<Drink>().Add(drink)
+
+            };*/
+
 
             /*//var item = new SaleItem { Name = "Shoes", Price = 19.95m };
             
@@ -75,7 +90,7 @@ namespace CoffeePointOfSale.Forms
 
             //var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
 
-           //List<Customization> custList = new List<Customization>();
+            //List<Customization> custList = new List<Customization>();
 
 
 
@@ -126,6 +141,19 @@ namespace CoffeePointOfSale.Forms
 
 
         }// ON LOAD METHOD
+
+
+        /*public Drink AddDrink()
+        {
+            var currentDrink = new Drink()
+            {
+                Name = "Coffee",
+                BasePrice = 4.00M
+                
+            };
+            return currentDrink;
+        }
+*/
 
 
         

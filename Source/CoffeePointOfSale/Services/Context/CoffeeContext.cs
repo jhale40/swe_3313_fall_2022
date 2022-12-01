@@ -1,4 +1,5 @@
 ﻿using CoffeePointOfSale.Services.Customer;
+using CoffeePointOfSale.Services.DrinkMenu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CoffeePointOfSale.Services.Context
     {
         //public static Customer CurrentCustomer { get; set; }
 
-        //public static Order CurrentOrder { get; set; }
+        public static Order? CurrentOrder { get; set; }
+
     }
 }
