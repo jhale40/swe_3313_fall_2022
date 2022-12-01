@@ -1,6 +1,6 @@
 ﻿namespace CoffeePointOfSale.Forms
 {
-    partial class FormAddCustomer
+    partial class FormReceipt
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FormAddCustomer";
+            this.Text = "FormReceipt";
         }
 
         #endregion
