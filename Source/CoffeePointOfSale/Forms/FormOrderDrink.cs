@@ -23,7 +23,7 @@ namespace CoffeePointOfSale.Forms
     {
         private IAppSettings _appSettings;
         private ICustomerService _customerService;
-        private IDrinkMenuService _drinkMenuService;
+        private readonly IDrinkMenuService _drinkMenuService;
         private Button? currentButton = null;
         private Drink? currentDrink;
         private bool drinkSelected = false;

@@ -1,5 +1,6 @@
 ﻿using CoffeePointOfSale.Configuration;
 using CoffeePointOfSale.Services.Customer;
+using CoffeePointOfSale.Services.FormFactory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,12 @@ namespace CoffeePointOfSale.Forms
             InitializeComponent();
             _appSettings = appSettings;
             _customerService = customerService;
+        }
+
+        private void bReturnToFormMain_Click(object sender, EventArgs e)
+        {
+            Close();
+            FormFactory.Get<FormMain>().Show();
         }
     }
 }
