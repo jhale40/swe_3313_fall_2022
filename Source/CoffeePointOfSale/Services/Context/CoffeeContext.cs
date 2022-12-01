@@ -14,5 +14,7 @@ namespace CoffeePointOfSale.Services.Context
 
         public static Order? CurrentOrder { get; set; }
 
+        public static Drink? CurrentDrink { get; set; }
+
     }
 }

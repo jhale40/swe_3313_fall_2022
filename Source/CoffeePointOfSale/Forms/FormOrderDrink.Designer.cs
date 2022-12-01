@@ -40,6 +40,7 @@
             this.checkedListBox = new System.Windows.Forms.CheckedListBox();
             this.listBox = new System.Windows.Forms.ListBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,11 +178,21 @@
             this.panelMenu.Size = new System.Drawing.Size(342, 669);
             this.panelMenu.TabIndex = 12;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(1007, 331);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(191, 219);
+            this.richTextBox1.TabIndex = 13;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
             // FormOrderDrink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 721);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.checkedListBox);
@@ -210,5 +221,6 @@
         private CheckedListBox checkedListBox;
         private ListBox listBox;
         private Panel panelMenu;
+        private RichTextBox richTextBox1;
     }
 }

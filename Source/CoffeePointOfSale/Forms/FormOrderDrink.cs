@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.LinkLabel;
 
+
 namespace CoffeePointOfSale.Forms
 {
     public partial class FormOrderDrink : Base.FormNoCloseBase
@@ -25,10 +26,13 @@ namespace CoffeePointOfSale.Forms
         private ICustomerService _customerService;
         private readonly IDrinkMenuService _drinkMenuService;
         private Button? currentButton = null;
-        private Drink? currentDrink;
+        public Drink? currentDrink;
         private bool drinkSelected = false;
         private bool customizationSelected = false;
         private readonly List<Customization> custList = new List<Customization>();
+        public List<Customization> DrinkCustomizations = new List<Customization>();
+        public Order CustomerOrder { get; set; }
+
         //private readonly List<Drink> ReadOnlyDrinkList = new List<Drink>();
          
         //var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
@@ -46,15 +50,43 @@ namespace CoffeePointOfSale.Forms
             var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
 
             //currentDrink = null
-            CoffeeContext.CurrentOrder.DrinkList.Add(currentDrink);
+            
 
 
         }
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
+            CoffeeContext.CurrentOrder = CustomerOrder;
             
-            
+            /*CoffeeContext.CurrentOrder = new Order()
+            {
+                Total = 0.0M
+            };*/
+
+            //CoffeeContext.CurrentOrder.DrinkList.Add(()_drinkMenuService.DrinkMenuList[0]);
+
+
+            var drinkMenuList = _drinkMenuService.DrinkMenuList;
+
+            var drink = drinkMenuList[0];
+            //drink.CustomizationList.Clear();
+
+            /*var drink = new Drink()
+            {
+                Name = "Coffee",
+                BasePrice = 4.0M,
+                CustomizationList = DrinkCustomizations
+            };*/
+
+            //rrentDrink = drink;
+
+
+            /*if (currentDrink != null)
+            {
+                CoffeeContext.CurrentOrder.DrinkList.Add(drink);
+
+            }*/
 
             SetTitleToCustomer();
             PopulateCheckBox();
@@ -143,20 +175,26 @@ namespace CoffeePointOfSale.Forms
         }// ON LOAD METHOD
 
 
-        /*public Drink AddDrink()
+        /*public void AddDrink(Drink drink)
         {
-            var currentDrink = new Drink()
+            if (drink != null)
+            {
+
+                CoffeeContext.CurrentOrder.DrinkList.Add(drink);
+
+            }
+            *//*var currentDrink = new Drink()
             {
                 Name = "Coffee",
                 BasePrice = 4.00M
-                
-            };
-            return currentDrink;
-        }
-*/
+
+            };*//*
+            
+        }*/
 
 
-        
+
+
 
         private void PopulateCheckBox()
         {
@@ -287,12 +325,32 @@ namespace CoffeePointOfSale.Forms
             //var drinkPrice = drinkMenuList[0].BasePrice;
             //currentDrink = { Name = drinkName, BasPrice = drinkPrice};
 
-            
+
 
             var drinkMenuList = _drinkMenuService.DrinkMenuList;
+
             var drink = drinkMenuList[0];
             //drink.CustomizationList.Clear();
+
+            /**//*var drink = new Drink()
+            {
+                Name = "Coffee",
+                BasePrice = 4.0M,
+                CustomizationList = DrinkCustomizations
+            };*//**/
+
             currentDrink = drink;
+
+            
+           /* if (currentDrink != null)
+            {
+                CoffeeContext.CurrentOrder.DrinkList.Add(currentDrink);
+
+            }*/
+
+
+
+
 
             //var drinkTemp = drink.CustomizationList.Clear();
 
@@ -375,6 +433,9 @@ namespace CoffeePointOfSale.Forms
 
         private void bAddToOrder_Click(object sender, EventArgs e)
         {
+            string Text = currentDrink.ToString();
+            richTextBox1.AppendText(Text+"\n");
+
             if (drinkSelected)
             {
                 //Drink? drink = currentDrink;
@@ -415,6 +476,12 @@ namespace CoffeePointOfSale.Forms
 
             //drinkSelected=false;
 
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            /*string Text = currentDrink.ToString();
+            richTextBox1.AppendText(Text);*/
         }
     }
 }
