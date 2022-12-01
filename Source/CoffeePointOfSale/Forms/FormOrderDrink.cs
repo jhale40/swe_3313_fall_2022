@@ -483,5 +483,11 @@ namespace CoffeePointOfSale.Forms
             /*string Text = currentDrink.ToString();
             richTextBox1.AppendText(Text);*/
         }
+
+        private void bPay_Click(object sender, EventArgs e)
+        {
+            Close();
+            FormFactory.Get<FormPayment>().Show();
+        }
     }
 }

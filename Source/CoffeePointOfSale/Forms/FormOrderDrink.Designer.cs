@@ -146,6 +146,7 @@
             this.bPay.TabIndex = 9;
             this.bPay.Text = "Pay";
             this.bPay.UseVisualStyleBackColor = true;
+            this.bPay.Click += new System.EventHandler(this.bPay_Click);
             // 
             // checkedListBox
             // 
