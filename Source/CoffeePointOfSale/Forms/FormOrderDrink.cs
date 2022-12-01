@@ -28,6 +28,9 @@ namespace CoffeePointOfSale.Forms
         private Drink? currentDrink;
         private bool drinkSelected = false;
         private bool customizationSelected = false;
+        private List<Customization> custList = new List<Customization>();
+        //var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+        //List<Customization> custList = new List<Customization>();
 
         //private Customer currentCustomer;
 
@@ -38,12 +41,28 @@ namespace CoffeePointOfSale.Forms
             _appSettings = appSettings;
             _customerService = customerService;
             _drinkMenuService = drinkMenuService;
-            //currentDrink = null;
-            
+            var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+
+            //currentDrink = null
+
         }
 
         private void FormOrderDrink_Load(object sender, EventArgs e)
         {
+            SetTitleToCustomer();
+            PopulateCheckBox();
+
+
+           var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+
+            foreach (Customization c in customizations)
+            {
+                custList.Add(c);
+                checkedListBox.Items.Add(c.ToString());
+                //var customization = customizations[c];
+
+            }
+
             /*//var item = new SaleItem { Name = "Shoes", Price = 19.95m };
             
             string name = "";
@@ -51,11 +70,13 @@ namespace CoffeePointOfSale.Forms
             List<Customization> cList = new List<Customization>();*/
             //var drink = new Drink { CustomizationList = null};
             //currentDrink = drink;
-            var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
-            SetTitleToCustomer();
-            PopulateCheckBox();
 
-             
+
+
+            //var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+
+           //List<Customization> custList = new List<Customization>();
+
 
 
 
@@ -112,15 +133,18 @@ namespace CoffeePointOfSale.Forms
         private void PopulateCheckBox()
         {
 
-            var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
             //var drink = drinkMenuList[0];
             //currentDrink = drink;
 
-                for (var index = 0; index < customizations.Count; index++)
-            {
+            /*var customizations = _drinkMenuService.DrinkMenuList[0].CustomizationList;
+            List<Customization> custList = new List<Customization>();*/
 
-                var customization = customizations[index];
-                checkedListBox.Items.Add(customization.ToString());
+
+            foreach (Customization c in custList)
+            {
+                //custList.Add(c);
+                checkedListBox.Items.Add(c.ToString());
+                //var customization = customizations[c];
 
             }
 
@@ -239,12 +263,12 @@ namespace CoffeePointOfSale.Forms
 
             var drinkMenuList = _drinkMenuService.DrinkMenuList;
             var drink = drinkMenuList[0];
+            //drink.CustomizationList.Clear();
+            currentDrink = drink;
 
             //var drinkTemp = drink.CustomizationList.Clear();
 
-            drink.CustomizationList.Clear();
 
-            currentDrink = drink;
             //currentDrink.CustomizationList.Clear();
 
 
