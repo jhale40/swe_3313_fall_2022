@@ -38,6 +38,7 @@
             this.Order = new System.Windows.Forms.DataGridViewButtonColumn();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNewCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerServiceBindingSource)).BeginInit();
@@ -116,11 +117,23 @@
             // 
             this.customerServiceBindingSource.DataSource = typeof(CoffeePointOfSale.Services.Customer.CustomerService);
             // 
+            // buttonNewCustomer
+            // 
+            this.buttonNewCustomer.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonNewCustomer.Location = new System.Drawing.Point(1051, 650);
+            this.buttonNewCustomer.Name = "buttonNewCustomer";
+            this.buttonNewCustomer.Size = new System.Drawing.Size(115, 38);
+            this.buttonNewCustomer.TabIndex = 2;
+            this.buttonNewCustomer.Text = "+New Customer";
+            this.buttonNewCustomer.UseVisualStyleBackColor = false;
+            this.buttonNewCustomer.Click += new System.EventHandler(this.buttonNewCustomer_Click);
+            // 
             // FormCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 721);
+            this.Controls.Add(this.buttonNewCustomer);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bReturnToMain);
             this.Name = "FormCustomerList";
@@ -144,5 +157,6 @@
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn rewardPointsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn Order;
+        private Button buttonNewCustomer;
     }
 }

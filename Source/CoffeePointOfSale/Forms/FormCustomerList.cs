@@ -77,5 +77,12 @@ namespace CoffeePointOfSale.Forms
             }
             
         }
+
+        private void buttonNewCustomer_Click(object sender, EventArgs e)
+        {
+            // Goes to FormAddCustomer
+            Close(); //closes this form
+            FormFactory.Get<FormAddCustomer>().Show();
+        }
     }
 }
